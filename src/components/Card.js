@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Paper, Avatar, Typography, Button } from "@mui/material";
 
 // Building the job card component
 
 // Passing the props to the Card function to be used in the job section to create multiple cards dynamically
-export default function Card() {
-  const [showFullDescription, setShowFullDescription] = useState(false);
-
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
-  };
-
+export default function Card(props) {
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text;
@@ -23,8 +17,6 @@ export default function Card() {
       "linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8))",
   };
 
-  const companyDescription =
-    "This is a sample job and you must have displayed it to understand that its not just some random lorem ipsum text but something which was manually written. Oh well, if random text is what you were looking for then here it is: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages and now in this assignment.";
   return (
     <>
       <Box
@@ -36,7 +28,6 @@ export default function Card() {
       >
         <Paper
           sx={{
-            width: "20.875rem",
             display: "flex",
             flexDirection: "column",
             textAlign: "left",
@@ -52,11 +43,7 @@ export default function Card() {
                 marginTop: "20px",
               }}
             >
-              <Avatar
-                src="https://logo.clearbit.com/ibm.com"
-                alt="logo"
-                sizes="lg"
-              />
+              <Avatar src={props.jobData.logoUrl} alt="logo" sizes="lg" />
               <Box
                 sx={{
                   display: "flex",
@@ -77,7 +64,7 @@ export default function Card() {
                   }}
                   variant="h3"
                 >
-                  Trumio
+                  {props.jobData.companyName}
                 </Typography>
                 <Typography
                   sx={{
@@ -87,7 +74,7 @@ export default function Card() {
                   }}
                   variant="h2"
                 >
-                  Product Manager
+                  {props.jobData.jobRole}
                 </Typography>
                 <Typography
                   variant="p"
@@ -98,7 +85,7 @@ export default function Card() {
                     color: "#666666 ",
                   }}
                 >
-                  India
+                  {props.jobData.location}
                 </Typography>
               </Box>
             </Box>
@@ -112,7 +99,10 @@ export default function Card() {
                 fontFamily: "__LexendFont_7838d2",
               }}
             >
-              Estimated Salary: ₹15 - 25 LPA ✅
+              Estimated Salary: ₹
+              {props.jobData.minJdSalary ? props.jobData.minJdSalary : "NA"} -{" "}
+              {props.jobData.maxJdSalary ? props.jobData.maxJdSalary : "NA"} LPA
+              ✅
             </Typography>
             <Typography
               variant="body1"
@@ -145,11 +135,11 @@ export default function Card() {
                 fontWeight: "400",
               }}
             >
-              {showFullDescription ? (
-                companyDescription
-              ) : (
+              {
                 <>
-                  <span>{truncateText(companyDescription, 310)}</span>
+                  <span>
+                    {truncateText(props.jobData.jobDetailsFromCompany, 310)}
+                  </span>
                   <span
                     style={{
                       ...gradientStyle,
@@ -162,7 +152,7 @@ export default function Card() {
                   />
                   <br></br>
                 </>
-              )}
+              }
             </Typography>
             <Typography
               sx={{
@@ -171,7 +161,7 @@ export default function Card() {
                 textAlign: "center",
                 fontFamily: "__LexendFont_7838d2",
               }}
-              onClick={toggleDescription}
+              onClick={() => (window.location.href = props.jobData.jdLink)}
             >
               View Job
             </Typography>
@@ -198,7 +188,7 @@ export default function Card() {
                 marginTop: "8px",
               }}
             >
-              1 Year
+              {props.jobData.minExp ? props.jobData.minExp : 0} Year
             </Typography>
             <Box
               display="flex"
