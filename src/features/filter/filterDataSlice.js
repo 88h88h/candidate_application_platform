@@ -4,11 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   roles: [],
-  noOfEmployees: [],
-  experience: [],
+  experience: 0,
   workplace: [],
-  minBasePay: "",
-  search: "",
+  minBasePay: 0,
+  search: [],
 };
 
 export const filterDataSlice = createSlice({
@@ -20,11 +19,7 @@ export const filterDataSlice = createSlice({
       state.roles = action.payload;
       console.log(state.roles);
     },
-    // Reducer function to add a number of employees
-    setNoOfEmployees: (state, action) => {
-      state.noOfEmployees = action.payload;
-      console.log(state.noOfEmployees);
-    },
+
     // Reducer function to add an experience
     setExperience: (state, action) => {
       state.experience = action.payload;
