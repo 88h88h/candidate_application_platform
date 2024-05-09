@@ -16,7 +16,7 @@ Candidate Application Platform is a frontend project which displays a variety of
 
 ## To run the frontend 
 
-Run the project 
+- GO inside the project folder and run the project 
 `npm start`
 
 ## More Information
