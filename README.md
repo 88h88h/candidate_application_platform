@@ -21,22 +21,26 @@ Run the project
 
 ## More Information
 
--The page loads with 8 job cards initially and fetches more as user scrolls to the bottom. There are multiple filters to refine the search. New jobs gets loaded in accordance with the applied filters.
+- Material UI is being used as instructed to build the interface.
 
--The layout is responsive and works well on both small screens and large screens.
+- Redux Toolkit is being used to manage state. In this project, it is being used to manage the state of the applied filters.
 
--As the API that was initially provided got down, I download the given sample data and kept it in my assets folder. The data is being fetched from sampleJdData.js in the assets folder.
+- The page loads with 8 job cards initially and fetches more as user scrolls to the bottom. There are multiple filters to refine the search. New jobs gets loaded in accordance with the applied filters.
 
--The Homepage is built in Home.js file. It has two sections Filter Section and Job Section. 
+- The layout is responsive and works well on both small screens and large screens.
 
--The Filter Section utilizes the Filter component and each filter is customized to specific use case with the use of props. 
+- As the API that was initially provided got down, I download the given sample data and kept it in my assets folder. The data is being fetched from sampleJdData.js in the assets folder.
 
--The Job Section dynamically loads the Card components, each job is assigned a card. The cards are arranged in a Grid Layout.
+- The Homepage is built in Home.js file. It has two sections Filter Section and Job Section. 
 
--The Filters display options dynamically using the data available in the current loaded jobs. As loaded jobs increases, the options a filter has may also increase.
+- The Filter Section utilizes the Filter component and each filter is customized to specific use case with the use of props. 
 
--The Search Company Name bar is also made a dropdown as names of company can be searched and selected. It gives suggestions on the basis of incomplete text too.
+- The Job Section dynamically loads the Card components, each job is assigned a card. The cards are arranged in a Grid Layout.
 
--Overall the app is functioning according to the requirements with just minor differences in the visual appearance of certain elements compared to the target.
+- The Filters display options dynamically using the data available in the current loaded jobs. As loaded jobs increases, the options a filter has may also increase.
+
+- The Search Company Name bar is also made a dropdown as names of company can be searched and selected. It gives suggestions on the basis of incomplete text too.
+
+- Overall the app is functioning according to the requirements with just minor differences in the visual appearance of certain elements compared to the target.
 
 Hope You Like It!
