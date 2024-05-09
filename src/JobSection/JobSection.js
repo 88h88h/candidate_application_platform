@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 export default function JobSection(props) {
   const jobArr = props.jobs;
-  console.log(jobArr);
   const [jobArray, setJobArray] = useState(jobArr);
   const roleFilter = useSelector((state) => state.roles);
   const experienceFilter = useSelector((state) => state.experience);

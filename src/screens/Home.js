@@ -12,7 +12,7 @@ export default function Home() {
   const fetchData = async () => {
     try {
       const dataArr = getSampleJdJSON().slice((page - 1) * 8, page * 8);
-      console.log(dataArr);
+
       setJobDataArray((prev) => [...prev, ...dataArr]); // Update state with fetched data
       setLoading(false);
     } catch (error) {
