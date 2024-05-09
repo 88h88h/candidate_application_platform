@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FilterSection from "../FilterSection/FilterSection";
 import JobSection from "../JobSection/JobSection";
+import { getSampleJdJSON } from "../assets/sampleJdData";
 
 export default function Home() {
   const [jobDataArray, setJobDataArray] = useState([]);
@@ -10,22 +11,9 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://api.weekday.technology/adhoc/getSampleJdJSON",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              limit: 10,
-              offset: 0,
-            }),
-          }
-        );
-
-        const data = await response.json();
-        setJobDataArray(data.jdList); // Update state with fetched data
+        const dataArr = getSampleJdJSON().slice(0, 13);
+        console.log(dataArr);
+        setJobDataArray(dataArr); // Update state with fetched data
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
