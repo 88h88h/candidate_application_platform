@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Candidate Application Platform Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developed as part of an assignment task.
 
-## Available Scripts
+## Introduction
+Candidate Application Platform is a frontend project which displays a variety of available jobs and gives user the power to filter it according to their needs
 
-In the project directory, you can run:
+## Setup and Installation
 
-### `npm start`
+- Clone the repository on your system by running the command
+  `git clone https://github.com/88h88h/candidate_application_platform.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Install the dependencies
+  `npm install`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## To run the frontend 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run the project 
+`npm start`
 
-### `npm run build`
+## More Information
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The page loads with 8 job cards initially and fetches more as user scrolls to the bottom. There are multiple filters to refine the search. New jobs gets loaded in accordance with the applied filters.
+The layout is responsive and works well on both small screens and large screens.
+As the API that was initially provided got down, I download the given sample data and kept it in my assets folder. The data is being fetched from sampleJdData.js in the assets folder.
+The Homepage is built in Home.js file. It has two sections Filter Section and Job Section. The Filter Section utilizes the Filter component and each filter is customized to specific use case with the use of props. The Job Section dynamically loads the Card components, each job is assigned a card. The cards are arranged in a Grid Layout.
+The Filters display options dynamically using the data available in the current loaded jobs. As loaded jobs increases, the options a filter has may also increase.
+The Search Company Name bar is also made a dropdown as names of company can be searched and selected. It gives suggestions on the basis of incomplete text too.
+Overall the app is functioning according to the requirements with just minor differences in the visual appearance of certain elements compared to the target.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hope You Like It!
