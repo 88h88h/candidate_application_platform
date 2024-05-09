@@ -43,4 +43,6 @@ Candidate Application Platform is a frontend project which displays a variety of
 
 - Overall the app is functioning according to the requirements with just minor differences in the visual appearance of certain elements compared to the target.
 
+Note: Tech Stack was not present in the sample data, so its filter is not included.
+
 Hope You Like It!
