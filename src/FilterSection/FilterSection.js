@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "../components/Filter";
 import {
   setExperience,
@@ -25,19 +25,28 @@ import { Box } from "@mui/material";
 //     "logoUrl": "https://logo.clearbit.com/adobe.com"
 // },
 export default function FilterSection(props) {
-  const rolesArray = [...new Set(props.jobs.map((job) => job.jobRole))];
+  const [rolesArray, setRolesArray] = useState([]);
+  const [experienceArray, setExperienceArray] = useState([]);
+  const [companyArray, setCompanyArray] = useState([]);
 
-  const experienceArray = [
-    ...new Set(
-      props.jobs.map((job) => job.minExp).filter((exp) => exp !== null)
-    ),
-  ].sort();
+  // Update filter options when props.jobs changes
+  useEffect(() => {
+    // Extract unique roles from job data
+    const roles = [...new Set(props.jobs.map((job) => job.jobRole))];
+    setRolesArray(roles);
 
-  const basePayArray = [5, 8, 12, 18, 25, 50, 80];
+    // Extract unique experience values from job data and sort them
+    const experience = [
+      ...new Set(
+        props.jobs.map((job) => job.minExp).filter((exp) => exp !== null)
+      ),
+    ].sort((a, b) => a - b); // Sort the experience array in ascending order
+    setExperienceArray(experience);
 
-  const locationArray = ["on-site", "remote"];
-
-  const companyArray = [...new Set(props.jobs.map((job) => job.companyName))];
+    // Extract unique company names from job data
+    const companies = [...new Set(props.jobs.map((job) => job.companyName))];
+    setCompanyArray(companies);
+  }, [props.jobs]);
 
   return (
     <>
@@ -68,14 +77,14 @@ export default function FilterSection(props) {
         />
         <Filter
           type="Remote"
-          optionsArray={locationArray}
+          optionsArray={["on-site", "remote"]}
           size={180}
           multiple={true}
           updateFilter={setWorkplace}
         />
         <Filter
           type="Miniumum Base Pay Salary"
-          optionsArray={basePayArray}
+          optionsArray={[5, 8, 12, 18, 25, 50, 80]}
           size={260}
           multiple={false}
           updateFilter={setMinBasePay}
